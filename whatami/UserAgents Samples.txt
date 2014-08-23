@@ -1,0 +1,7 @@
+The word "nokia" can be found in the User-Agent header of Nokia's cell phones.
+The word "motorola" or "mot-" can be found in the User-Agent header of Motorola's cell phones.
+The word "samsung" or "sec-" can be found in the User-Agent header of Samsung's cell phones.
+The word "lg-" can be found in the User-Agent header of LG's cell phones.
+The word "sonyericsson" can be found in the User-Agent header of Sony Ericsson's cell phones.
+The word "sie-" can be found in the User-Agent header of Siemens' cell phones.
+The word "up.b" or "up/" can be found in the User-Agent header of cell phones that uses the Openwave Mobile Browser.

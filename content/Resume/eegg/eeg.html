@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+    <TITLE>
+      The Development Team
+    </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!----------------------------------------------
+fyi = .7
+fxi = 1
+p = 8
+function start()
+    {
+    setTimeout("scroll()",5000)
+    setTimeout("zoom()",25000)
+    } 
+
+
+function scroll()
+    {
+    y = document.all.list.style.pixelTop;
+    y --;
+    if (y < -400) y = 140;
+    document.all.list.style.pixelTop = y;
+    setTimeout("scroll()",40)
+    } 
+
+function zoom()
+    {
+    fy = document.all.falcon.style.pixelTop;
+    fx = document.all.falcon.style.pixelLeft;
+    fx+=fxi;
+    fy+=fyi;
+    p = p + 3
+    if (fx > 450) 
+      {
+      fyi = .7
+      fxi = 1
+      p=5
+      document.all.falcon.style.pixelTop = -60;
+      document.all.falcon.style.pixelTop = 50;
+      document.all.falcon.style.width = p;
+      setTimeout("zoom()",15000);
+      }
+    else
+      {
+      document.all.falcon.style.pixelTop = fy;
+      document.all.falcon.style.pixelLeft = fx;
+      document.all.falcon.style.width = p + "%";
+      setTimeout("zoom()",20)
+      }
+    } 
+// -->
+</SCRIPT>
+<STYLE>
+	A:hover { color: #6666FF; }	
+	A:link,
+	A:Visited,
+	A:Active
+	{text-decoration : none}
+
+  TD.function {
+    font-family: "Small Fonts";
+    font-size: 7pt;
+    color: #FFFFFF;
+    text-align: right;}
+    
+  TD.group {
+    font-family: Arial, Helvetica;
+    font-size: 12pt;
+    color: #FF9900;
+    text-align: center;}
+    
+  TD.para {
+    font-family: Arial, Helvetica;
+    font-size: 9pt;
+    color: #FFFFFF;
+    text-align: center;}
+    
+  TD.name {
+    font-family: Arial, Helvetica;
+    font-size: 10pt;
+    color: #FFFF00;
+    text-align: left;}
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR="000000" ONLOAD="start()">
+
+
+<DIV ID='falcon' STYLE='VISIBILITY: visible; position:absolute; left: -60px; top: 50px'>
+  <IMG SRC="lib/falcon2.gif" WIDTH=5%>
+</DIV>
+
+<!-- ------------------------------------- Scrolling List -->
+
+<DIV ID='list' STYLE='VISIBILITY: visible; position:absolute; left: 30px; top: 40px'>
+  <CENTER>
+  <IMG SRC="lib/eelogo.gif">
+  <br><br><br><br><br>
+  <TABLE BORDER=0 CELLPADDING=4 CELLSPACING=0>
+    <TR>
+      <TD CLASS="para" COLSPAN=2>
+        Stand-In-Server maintenance utilities<br>
+        August, 2000
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="function" VALIGN=TOP>
+        Mastermind:
+      </TD>
+      <TD CLASS="name" VALIGN=TOP>
+        Steve Alloway
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="function" VALIGN=TOP>
+        Project Manager:
+      </TD>
+      <TD CLASS="name" VALIGN=TOP>
+        David Hughes<br>
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="function" VALIGN=TOP>
+        UI Developement
+      </TD>
+      <TD CLASS="name" VALIGN=TOP>
+        Tom Beale
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="function" VALIGN=TOP>
+        Database Developement
+      </TD>
+      <TD CLASS="name" VALIGN=TOP>
+        Arokia Viagulasesudian
+      </TD>
+    </TR>
+  </TABLE>
+</DIV>
+
+
+</BODY>
+</HTML>

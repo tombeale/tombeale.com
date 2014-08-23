@@ -1,0 +1,118 @@
+<?
+$cdate = getdate();
+
+
+$lastday[1] = 31;
+$lastday[2] = 29;
+$lastday[3] = 31;
+$lastday[4] = 30;
+$lastday[5] = 31;
+$lastday[6] = 30;
+$lastday[7] = 31;
+$lastday[8] = 31;
+$lastday[9] = 30;
+$lastday[10] = 31;
+$lastday[11] = 30;
+$lastday[12] = 31;
+
+$bg = "lib/bg.jpg";
+
+$calsize = 2;
+$caltext = "000000";
+
+function day($m,$d,$y,$bg)
+	{
+	global $calsize;
+	global $caltext;
+	
+	echo "		<TD BGCOLOR='$bg' ALIGN=CENTER>\n";
+	echo "			<FONT FACE='Arial, Helvetica' SIZE=$calsize COLOR='$caltext'><b>";
+	if (checkdate($m, $d, $y)) 
+		{
+		echo "$d\n";
+		}
+	else
+		{
+		echo "&nbsp";
+		}
+	echo "		</TD>\n";
+	}
+	
+
+function week($m,$s,$y)
+	{
+	global $lastday;
+	global $today;
+	global $cmonth;
+	if ($s > $lastday[$m]) return;
+	echo "	<TR>\n";
+	for ($a=0; $a<7; $a++)
+		{
+		$c = "FFFFFF";
+		if ($a==0) $c = "CCCCCC";
+		if ($a==6) $c = "CCCCCC";	
+		if (($today==($s+$a)) && ($cmonth==1))
+			{ 
+			$c = "FFFF00";
+			}
+		day ($m, $s+$a, $y, $c);
+		}
+	echo "	</TR>\n";
+	}
+
+function mdate($m, $d, $y)
+	{
+	$ts = mktime(1,1,1,$m,$d,$y);
+	return $ts;
+	}
+	
+
+function Calendar($month,$year)
+	{
+	global $bg;
+	global $calsize;
+	
+	$sdate = mdate($month,1,$year);
+	$sdate = getdate($sdate);
+		$m  = $sdate['month'];
+		$m1 = $sdate['mon'];
+		$y  = $sdate['year'];
+	
+	$sd = 1 - $sdate["wday"];
+	
+	
+	echo "<TABLE BORDER=1 CELLPADDING=0><TR><TD BGCOLOR='CC0000' >\n";
+	echo "	<TABLE CELLPADDING=2 CELLSPACING=1>\n";
+	echo "		<TR>\n";
+	echo "			<TD COLSPAN=7 ALIGN=CENTER>\n";
+	echo "				<FONT FACE='Arial, Helvetica' SIZE=$calsize COLOR='FFFFFF'><b>\n";
+	echo "					$m &#151; $y\n";
+	echo "			</TD>\n";
+	echo "		</TR>\n";
+	echo "		<TR>\n";
+	
+	
+	for ($w=0; $w<=5; $w++)
+		{
+		week($month, $sd + ($w * 7), $year);
+		}
+	echo "		</TR>\n";
+	echo "	</TABLE>\n";
+	echo "</TD></TR></TABLE>\n";
+
+	}
+
+function this_month()
+	{
+	global $cdate;
+	global $cmonth;
+	global $today;
+	
+	$cmonth = 1;
+	$today = $cdate["mday"];
+	Calendar($cdate["mon"],$cdate["year"]);
+	$cmonth=0;
+	}
+
+
+?>

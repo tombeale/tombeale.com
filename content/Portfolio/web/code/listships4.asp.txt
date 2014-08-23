@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+    <TITLE>
+    	Commercial Manufacturing - List Ships
+    </TITLE>
+	<%
+	arg = request.querystring
+	
+	Set Conn = Server.CreateObject("ADODB.Connection")
+	cnpath="DBQ=" & server.mappath("aflows.mdb")
+	Conn.Open "DRIVER={Microsoft Access Driver (*.mdb)}; " & cnpath
+	
+	sql = "SELECT FlowData.ship, FlowData.model, FlowData.airline, FlowData.logo, FlowData.[ramp-s] FROM FlowData ORDER BY FlowData.ship;"
+	
+	set rs=conn.execute(sql)
+	%>
+	<STYLE>
+	        A:link,
+	        A:Visited,
+	        A:Active
+	        {text-decoration : none}
+	</STYLE>
+</HEAD>
+
+<BODY BGCOLOR="FFFFFF">
+<FONT FACE="Arial Black, Arial, Helvetica">
+<A TARGET="_top" HREF="/resume/web/code/">Back to Code</A>
+<TABLE>
+	<%do while not rs.eof %> 
+	<TR>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=+1 COLOR="000000">
+			<b><A TARGET="main" HREF="./showship.asp?<%=rs.Fields(0)%>"><%=rs.Fields(0)%></A></b>
+		</TD>
+		<TD ALIGN=CENTER>
+			<%if rs.fields(3) <> "" then%>
+				<A TARGET="main" HREF="./showship.asp?<%=rs.Fields(0)%>"><IMG SRC='./logos/<%=rs.fields(3)%>' WIDTH="75" BORDER=0></A>
+			<%end if%>	
+		</TD>		 
+	</TR>
+	<% 
+	rs.movenext
+	loop 
+	rs.close
+	set rs=nothing
+	conn.close
+	%>
+</TABLE>
+</BODY>
+</HTML>
+

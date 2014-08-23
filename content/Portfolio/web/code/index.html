@@ -1,0 +1,243 @@
+<HTML>
+<HEAD>
+    <TITLE>
+    	Tom Beale -- Coding Samples
+    </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!---- Get Version Number of Browser
+
+version = "0";
+DHTML   = "0";
+prog = "prog";
+info = "info";
+alreadyup = 0;
+
+bName = navigator.appName;
+bVer = parseInt(navigator.appVersion);
+if (bName == "Netscape" && bVer >= 3) version = "3";
+	else if (bName == "Microsoft Internet Explorer" && bVer > 3) version = "3"; 
+if (bName == "Netscape" && bVer >= 4) DHTML = "1";
+	else if (bName == "Microsoft Internet Explorer" && bVer >= 4) DHTML = "2"; 
+
+
+
+function popup(n)
+	{
+	if (DHTML < 1) return;
+	if (alreadyup == 1) 
+		{
+		popdown(n);
+		return;
+		}
+	if (DHTML == "1") 
+		{
+		document.layers [n].visibility = "show";
+		}
+	else 
+		{
+		document.all[n].style.visibility = "visible";
+		}
+	alreadyup = 1;
+	}
+
+function popdown(n)
+	{
+	if (DHTML < 1) return;
+	if (DHTML == "1") 
+		{
+		document.layers [n].visibility = "hide";
+		}
+	else 
+		{
+		document.all [n].style.visibility = "hidden";
+		}
+	alreadyup = 0;
+	}
+
+// -->
+</SCRIPT>
+<STYLE>
+	A:hover { color: #6666FF; }	
+	A:link,
+	A:Visited,
+	A:Active
+	{text-decoration : none}
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR="FFFFFF" VLINK="000099" LINK="000099" ALINK="FFFF00">
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+		<TD WIDTH=10 HEIGHT=49 BACKGROUND="lib/title-l.gif">
+			<IMG SRC="../lib/space.gif" WIDTH=220 HEIGHT=5 BORDER=0><br>
+		</TD>
+		<TD WIDTH=90% HEIGHT=49 BACKGROUND="lib/title-r.gif">
+			<IMG SRC="../lib/space.gif" WIDTH=200 HEIGHT=5><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2" VALIGN=TOP>
+			
+<TABLE CELLSPACING=8 WIDTH=95% BORDER=0>
+
+	<!-- -------------------------- Active Server Pages -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial Black, Arial, Helvetica" SIZE=+1 COLOR="999999">
+			Active Server Pages<br>
+			<img src="../lib/line.gif"><br>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			
+		</TD>
+	</TR>
+	<!------------------------------------ ShowShip -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<b><A TARGET="_new" HREF="../websites/manufact">ShowShip.asp</A> 
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			This is a sample from a site that displays production status in a graphic format. 
+			It pulls data from an Access database, then uses it to determine which images get displayed.
+			<A HREF="showship.asp.txt"><u>View Source Code</u></A><br>
+		</TD>
+	</TR>
+	<!------------------------------------ ShowShip -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<b><A TARGET="_new" HREF="../websites/equip/Categories.asp?Category=3D">Categories.asp</A> 
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			This sample displays a matrix of skills, hardware and software. The idea behind this set 
+			of pages is to allow designated users at each location to edit the values for their locations.
+			Clicking on the name of a location brings up the edit page. The data is stored in an Access database.
+			<A HREF="categories.asp.txt"><u>View Source Code</u></A><br> 
+		
+		</TD>
+	</TR>
+	
+	<!-- -------------------------- PHP -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial Black, Arial, Helvetica" SIZE=+1 COLOR="999999">
+			PHP<br>
+			<img src="../lib/line.gif"><br>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			
+		</TD>
+	</TR>
+	
+	<!------------------------------------ show_member -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<b><A HREF="show_member.php.txt">show_member.php</A> 
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			This sample displays member data stored in a MySQL database. The site is on a Linux server.
+		
+		</TD>
+	</TR>
+
+
+	<!-- -------------------------- PERL -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial Black, Arial, Helvetica" SIZE=+1 COLOR="999999">
+			PERL<br>
+			<img src="../lib/line.gif"><br>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			
+		</TD>
+	</TR>
+	
+	<!------------------------------------ show_member -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<b><A HREF="verify.pl.txt">verify.pl</A> 
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			This sample is a PERL script that parses form data from a POST, writes it to a temporary file,
+			then goes to AuthorizeNet.
+		
+		</TD>
+	</TR>
+
+	
+	<!------------------------------------ show_member -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<b><A HREF="ps/badges.pl.txt">badges.pl</A><br>
+			<b><A HREF="ps/DC8Supp.txt">DC8Supp.txt</A><br> 
+			<b><A HREF="ps/DC8Supp.ps.txt">DC8Supp.ps</A><br> 
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			This sample is a PERL script that generates a postscript file from a list of names
+		
+		</TD>
+	</TR>
+
+	<!-- -------------------------- DHTML -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial Black, Arial, Helvetica" SIZE=+1 COLOR="999999">
+			Dynamic HTML<br>
+			<img src="../lib/line.gif"><br>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			
+		</TD>
+	</TR>
+	
+	<!------------------------------------ show_member -->
+	<TR>
+		<TD COLSPAN=2>
+			<FONT FACE="Arial, Helvetica" SIZE=-0>
+			<A HREF="JavaScript:popup('ecard')"><b>Check it Out</b> (Click again to close)</A>
+		</TD>
+	</TR>
+	<TR>
+		<TD><IMG SRC="../lib/space.gif" WIDTH=60 HEIGHT=5></TD>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1>
+			I've stayed away from JavaScript in the past because it was not reliable in all browsers. 
+			That's changing now, so I have gotten brave and tried a few "tricks". The general rule of 
+			thumb that I follow: Do the "eye candy" in JavaScript or Java, but stick to server-side 
+			scripting if it's important (like navigation).
+			<p>
+			Look at the page source to check out the code.
+		</TD>
+	</TR>
+</TABLE>
+
+<!-- -------------------------- End Content -->
+		</TD>
+	</TR>
+</TABLE>
+<DIV ID='ecard' STYLE="VISIBILITY: hidden; position: relative; left: 0px; top: -310px">
+	<A HREF="JavaScript:popdown('ecard')"><IMG SRC="/lib/ecard-s.gif" BORDER=0></A>
+</DIV>
+</BODY>
+</HTML>

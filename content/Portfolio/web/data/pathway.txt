@@ -1,0 +1,14 @@
+.client
+Pathway Christian Church
+.url
+www.pathwaychurch.org
+.host
+xenus.net
+.server
+linux/Apache
+.synopsis
+I was responsible for the layout and development of this site.
+The Pathway logo was provided as an Adobe Illustrator file
+and the main photograph was provided as a Photoshop Image.
+<p>
+The HTML and JavaScript were hand coded in UltraEdit

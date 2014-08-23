@@ -1,0 +1,163 @@
+a:link,
+a:visited,
+a:active {
+	color: #000066; 	
+	text-decoration : underline; 	
+}
+
+a:hover {
+	color: #000088; 
+	}
+
+a.menu:link,
+a.menu:visited,
+a.menu:active {
+	color: #333366; 
+	text-decoration : none; 	}
+a.menu:hover {
+	color: #6666ff; 
+	}
+
+a.inline:link,
+a.inline:visited,
+a.inline:active {
+	color: #000066; 
+	text-decoration : none; 	}
+
+a.inline:hover {
+	color: #6666ff;
+	text-decoration : underline; 
+	}
+
+.menu 		{ color: #333366;	text-decoration : none; 	cursor: pointer; 	}
+.cmenu 		{ color: #333366;	text-decoration : none; 	cursor: pointer; 	}
+.submenuitem { color: #333366; text-decoration : none; cursor: pointer; 	}
+
+.headline { 
+		padding: 10px;
+		font-size: 18pt;
+		line-height: 24pt;
+		color: #999;
+		vertical-align: top;
+		}
+
+body 	{ font-family: Arial, Helvetica; 	font-size: 9pt; 	margin: 0 0 0 0; 	}
+td 		{ font-family: Arial, Helvetica; 	font-size: 9pt; 	}
+th 		{ font-family: Arial, Helvetica; 	font-size: 8pt; font-weight: bold; }
+td.dump { border-style: solid; 	border-color: #666666; 	border-width: 1; 	}
+
+.caption 	{ font-family: Arial, Helvetica; font-weight: normal;	font-size: 8pt; color: grey;	}
+.invoiceItem 		{ font-size: 12pt; padding: 0 0 10px 15px; font-weight: bold;}
+.invoiceNumber 		{ font-size: 14pt; padding: 0 0 0 15px; font-weight: bold; color: red;}
+.invoicedescription	{ position: relateive; 	border-style: solid; border-width: 2px; border-color: #999; font-size: 10pt; font-weight: normal; background-color: white; padding: 5px; }
+
+.company 	{ font-size: 12pt; font-weight: bold; color: #666666; }
+.rating 	{ font-size: 10pt; vertical-align: bottom; padding: 4px 0px 0px 25px;}
+
+.item 		{ font-size: 10pt; font-weight: bold; text-align: right; }
+.itemText 	{ font-size: 10pt; line-height: 12pt; font-weight: normal; text-align: left; }
+
+.item2 		{ font-size: 10pt; font-weight: bold; text-align: left; color: #000;  padding: 12px 0px 0px 10px;}
+.itemText2 	{ font-size: 9pt; font-weight: normal; text-align: justify; padding: 6px 0px 0px 25px; color: #555555; }
+
+.link		{ cursor: pointer;}
+
+.input		{ font-family: Arial, Helvetica; border-style: solid;border-color:red; border-width:1px; }
+.label	 	{ font-size: 7pt; font-weight: normal; color: #666666; }
+
+.list {
+	padding-bottom: 4px;
+}
+
+ul {
+	padding-top: 3px;
+	}
+
+.bullet2 {
+	vertical-align: top;
+	text-align: right;
+	padding-top: 8px;
+}
+
+.blacklink {
+	color: black;
+	cursor: pointer;
+}
+
+.blacklink:hover {
+	color: blue;
+	cursor: pointer;
+}
+
+#menusec 	{ position: absolute; 	left: 30px; 	top: 110px; 	}
+#mainmenu	{ position: absolute; 	left: 0px; 	top: 0px; 	}
+.menuarea	{ position: relative; 	border-style: solid; 	border-width: 2px; 	border-color: red; 	background-color: white; 	padding: 5px; 	}
+.cmenuarea	{ position: relative; font-size: 8pt; 	border-style: solid; 	border-width: 1px; 	border-color: red; 	background-color: white; 	padding: 5px; 	}
+
+.textsection	{ position: relative; 	border-style: solid; 	border-width: 2px; 	border-color: red; 	background-color: white; 	padding: 5px; 	}
+
+.para		{ font-size: 10pt; line-height: 14pt; padding: 5 0 0 30; }
+
+.companyarea	{ position: relateive; 	border-style: solid; border-width: 2px; border-color: #999; 	background-color: white; padding: 5px; }
+
+.submenu	{ color: black; 	font-size: 12px; line-height:14px; 	border-style: solid; 	border-width: 2px; 	border-color: red; 	background-color: white; 	padding: 5px; 	}
+.mshadow 	{	Opacity:0.30; 
+				filter:progid:DXImageTransform.Microsoft.Alpha( 
+					Opacity=30, 
+					FinishOpacity=30, 
+					Style=1, 
+					StartX=30,  
+					FinishX=30, 
+					StartY=30,
+					FinishY=30)
+				}
+
+.boxshadow 	{ Background-color: #000;
+			  filter:progid:DXImageTransform.Microsoft.Alpha(
+				Opacity=30,
+				FinishOpacity=30,
+				Style=1,
+				StartX=30, 
+				FinishX=30,
+				StartY=30,
+				FinishY=30)
+				}
+
+.infobg 	{ Background-color: #fff;
+		Opacity:0.80;
+		filter:progid:DXImageTransform.Microsoft.Alpha(
+			Opacity=90,
+			FinishOpacity=50,
+			Style=1,
+			StartX=00, 
+			FinishX=100,
+			StartY=100,
+			FinishY=100)
+		}
+
+.infotable 	{ 	border-style: solid;
+				border-width:1px;
+				border-color: f00;
+				}
+
+.lightsec {	border-style: solid; border-width: 1; border-color: #999999; background-color: #fff; padding: 10px; font-size: 11pt; line-height: 14pt; color: #555; vertical-align: top;}
+.idnumber	{ font-family:Arial; font-size:14pt; background-color: #ffffff;  border-style: solid; border-width: 1pt; border-color: #b3997f; }
+
+.menuItem { position: absolute; }
+
+/* Calendar Styles */
+.caltable	{ font-family:Arial; font-size:12pt; background-color: #ffffff;  border-style: solid; border-width: 1pt; border-color: #b3997f; }
+.calheader	{ font-family:Arial; font-size:10pt; background-color: #ffdab5;  border-style: solid; border-width: 1pt; border-color: #b3997f; color:#000; font-weight:bold;}
+.caldaynorm	{ font-family:Arial; font-size:8pt; background-color: #ffffff; border-style: solid; border-width: 1pt; border-color: #b3997f; color:#777; cursor: pointer;}
+.calweekend	{ font-family:Arial; font-size:8pt; background-color: #ffdab5; border-style: solid; border-width: 1pt; border-color: #b3997f; cursor: pointer;}
+.caltoday	{ font-family:Arial; font-size:8pt;  background-color: #ffff66; border-style: solid; border-width: 1pt; border-color: #b3997f; cursor: pointer;}
+
+/* Editor Styles */
+.button { font-size: 8pt; border-style: solid; border-width: 1px; border-color: #003300; background-color: #FFDAB5;  padding: 0 0 0 0; }
+.toolbutton	{ font-family:Arial; font-size:8pt; background-color: #ffdab5; border-style: solid; border-width: 1pt; border-color: #b3997f; cursor: pointer;}
+
+/* ToDo Styles */
+.todoinput		{ border-style: solid;border-color:red; border-width:1px; }
+
+
+

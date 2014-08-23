@@ -1,0 +1,58 @@
+body { 
+	background-color: #FFDAB5; 
+	margin-top:0; 
+	margin-left:0;
+	margin-right:0;
+	margin-bottom:0;
+	}
+
+a:link,
+a:visited,
+a:active
+	{text-decoration : none}
+	a:hover { color: #637e63; }	
+
+
+.cal_heading {
+	font-family: Arial;
+	background-color: #FFDAB5;
+	text-align: center;
+	font-weight: bold;
+	font-size: 11pt;
+	}
+
+.daylabel {
+	font-family: Arial;
+	background-color: #FFDAB5;
+	text-align: center;
+	font-weight: bold;
+	font-size: 7pt;
+	}
+
+.cal_today {
+	font-family: Arial;
+	font-weight: normal;
+	background-color: #FFDAB5;
+	text-align: center;
+	color: #637e63;
+	font-size: 10pt;
+	cursor: hand;
+	}
+
+.cal_day {
+	font-family: Arial;
+	font-weight: normal;
+	background-color: #ffffff;
+	text-align: center;
+	color: #637e63;
+	font-size: 10pt;
+	cursor: hand;
+	}
+
+.cal_off_day {
+	font-family: Arial;
+	font-weight: normal;
+	background-color: #FFDAB5;
+	color: #637e63;
+	font-size: 10pt;
+	}

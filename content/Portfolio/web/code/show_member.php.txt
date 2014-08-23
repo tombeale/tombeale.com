@@ -1,0 +1,185 @@
+<?
+# -------------------------------------------------------
+#      show_member.php3
+#      (c)1999 Node 1 Graphics
+# -------------------------------------------------------
+require "global.php3";
+
+$rfont = "<FONT FACE=\"Arial Narrow, Arial, Helvetica\" SIZE=+2 COLOR=\"000000\">";
+$nfont = "<FONT FACE=\"Arial Narrow, Arial, Helvetica\" SIZE=+1 COLOR=\"000000\">";
+$ifont = "<FONT FACE=\"Arial Narrow, Arial, Helvetica\" SIZE=+0 COLOR=\"000000\">";
+
+$l = mysql_connect($hostname, $username, $password);
+#mysql_select_db("letterhead", $l);
+
+$sql  = "SELECT *  FROM members WHERE ID = '$id'";
+
+$r = mysql_db_query("letterhead", $sql , $l);
+
+$line = mysql_fetch_array($r);	
+
+
+function cshow($flag, $value, $suffix)
+	{
+	if ($flag == 1)
+		{
+		echo "$value$suffix";
+		}
+	}
+
+?>
+<HTML>
+<HEAD>
+    <TITLE>
+    
+    </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!----------------------------------------------
+
+// -->
+</SCRIPT>
+<STYLE>
+	A:hover { color: #6666FF; }	
+	A:link,
+	A:Visited,
+	A:Active
+	{text-decoration : none}
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR="000080" LINK="000099" VLINK="000066" ALINK="FFFF00">
+<?if ($letterhead_ID != "") include("membermenu.php3")?>
+
+
+<CENTER>
+<IMG SRC="lib/members.gif" VSPACE=5 HSPACE=5><br>
+<?
+$Image = $line["Image"];
+
+if ($Image == "")
+	$img = "<IMG SRC='default.jpg'>";
+else
+	$img = "<IMG SRC='mphotos/$Image'>";
+
+
+
+$FName = $line["FName"];
+$NName = $line["NName"];
+$LName = $line["LName"];
+$SName = $line["SName"];
+
+$Company = $line["Company"];
+$Compemail = $line["Compemail"];
+$URL = $line["URL"];
+
+$WAddress = $line["WAddress"];
+$WCity    = $line["WCity"];
+$WState   = $line["WState"];
+$WZip     = $line["WZip"];
+$WCountry = $line["WCountry"];
+
+$WPhone = $line["WPhone"];
+$FPhone = $line["FPhone"];
+
+$Comments = $line["Comments"];
+$Info = $line["Info"];
+$Desc = $line["DESCRIP"];
+$History = $line["History"];
+$ShopInfo = $line["ShopInfo"];
+
+
+if ($URL != "")
+	{
+	$URL = "<A TARGET='outside' HREF='http://$URL'>$URL</A>";
+	}
+
+if ($Compemail != "")
+	{
+	$Compemail = "<A HREF='mailto:$Compemail'>$Compemail</A>";
+	}
+
+$sqlp = "SELECT *  FROM profiles WHERE ID = '$id'";
+$p = mysql_db_query("letterhead", $sqlp , $l);
+
+if ($p != "")
+	{
+	$pline = mysql_fetch_array($p);
+	
+	$name4mat = $pline["Name4mat"];
+	$WebSite  = $pline["WebSite"];
+	$EMail    = $pline["EMail"];
+	$BusAddr  = $pline["BusAddr"];
+	$BusPhone = $pline["BusPhone"];
+	}
+
+
+switch ($name4mat)
+	{
+	case 1:
+		$namestring = "$FName $LName";
+		break;
+	case 2:
+		$namestring = "$FName ($NName) $LName";
+		break;
+	case 3:
+		$namestring = "$NName $LName";
+		break;
+	case 4:
+		$namestring = "$FName & $SName $LName";
+		break;
+	case 5:
+		$namestring = "$NName & $SName $LName";
+		break;
+	}
+
+
+
+print "
+<TABLE CELLSPACING=0 BORDER=1 CELLPADDING=5 BGCOLOR='CCCCFF'><TR><TD>
+	<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5 BGCOLOR='FFFFFF'>
+		<TR>
+			<TD VALIGN=TOP>
+				$img
+			</TD>
+			<TD VALIGN=TOP>
+				$rfont
+				<b>$namestring</b><br>
+				$Company<br>
+				";
+				echo "$ifont<p>";
+				cshow($WebSite, $URL,      "<br>");
+				cshow($EMail, $Compemail, "<br>");
+				echo "<b><p>";
+				cshow($BusAddr, $WAddress, "<br>");
+				cshow($BusPhone, $WPhone,  "<br>");
+				cshow("1", $WCity, " ");
+				cshow("1", $WState, " ");
+				cshow("1", $WZip, " ");
+				cshow("1", $WCountry, " ");
+				
+				print "
+			</b>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=2>
+				$ifont &nbsp;
+				<p>
+				<PRE>$Comments</PRE>
+				<p>
+				<PRE>$ShopInfo</PRE>
+				<p>
+				<PRE>$Desc</PRE>
+				<p>
+				<PRE>$History</PRE>
+				
+			</TD>
+		</TR>
+	</TABLE>
+</TABLE>
+
+
+";
+?>
+</BODY>
+</HTML>

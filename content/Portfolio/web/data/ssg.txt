@@ -1,0 +1,16 @@
+.client
+Shared Services, Presentations
+.url
+.host
+Boeing Internal Intranet
+.server
+Sun/Unix
+.synopsis
+Departmental website on the Boeing intranet. I was responsible for 
+the design, development and most of the content. This site is not 
+accessable from the public internet,  
+<p>
+The 3D image was created in Ray Dream Studio, the title and all
+other graphics were done in CorelXara.
+<p>
+HTML and JavaScript were created in UltraEdit

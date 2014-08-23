@@ -1,0 +1,8 @@
+.client
+.url
+.host
+.server
+.synopsis
+.toolbox
+.t
+.u

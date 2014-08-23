@@ -1,0 +1,137 @@
+#!/usr/bin/perl
+#
+#  PERL Coding Sample -- Stores field values in a temp file, then goes to AuthorizeNet for verification
+#		(C) 2000 Tom Beale
+#
+
+$min{"10"} = "40.00";
+$CPM{"10"} = ".80";
+$PPM{"10"} = "4.00";
+
+$min{"15"} = "49.95";
+$CPM{"15"} = ".66";
+$PPM{"15"} = "3.33";
+
+$min{"20"} = "60.00";
+$CPM{"20"} = ".60";
+$PPM{"20"} = "3.00";
+
+$min{"30"} = "99.00";
+$CPM{"30"} = ".66";
+$PPM{"30"} = "3.30";
+
+$min{"60"} = "180.00";
+$CPM{"60"} = ".60";
+$PPM{"60"} = "3.00";
+
+
+$filename = time;
+
+$fn = "/home/httpd/htdocs/clients/vern/mil2/$filename.txt";
+
+
+print "Content-Type: text/html\n\n";
+
+$method=$ENV{"REQUEST_METHOD"}; 
+
+if ($method eq "POST")
+	{
+	$size = $ENV{"CONTENT_LENGTH"};
+	read (STDIN, $temp, $size);
+	}
+else
+	{
+	$temp = $ENV{"QUERY_STRING"};
+	}
+
+@lines = split(/&/,$temp);
+
+@tmp = split(/=/,$lines[0]);
+
+for ($a=0; $a < @lines; $a++)
+	{
+	$lines[$a] =~ tr/+/ /;
+    $lines[$a]=~ s/%(..)/pack("c",hex($1))/ge; 
+	@atemp = split(/=/,$lines[$a]);
+	$arg{$atemp[0]} = $atemp[1];
+	}
+
+
+# ------------------------- Write HTML Headers and FORM
+print <<end_header;
+<BODY BGCOLOR="000000">
+<FONT COLOR="FFFF00">
+Please be patient while your information is being verified... 
+
+<FONT COLOR="000000">
+<FORM NAME="theform" METHOD=POST ACTION="/cgi-bin/echo.pl" ACTIO="https://secure.authorize.net/gateway/transact.dll">
+end_header
+
+
+
+# ------------------------- Write Fields to Temporary File and HTML FORM
+open (OF, ">$fn");
+
+$m = $arg{"MINUTES"};
+
+print OF "PPM=$PPM{$m}\n";
+print OF "CPM=$CPM{$m}\n";
+
+
+foreach $k (keys(%arg))
+	{
+	print OF "$k=$arg{$k}\n";
+	
+	$r = &conv($k);
+	
+	if ($r ne "")
+		{
+		print "<INPUT TYPE=HIDDEN NAME='$r' VALUE='$arg{$k}'>\n";
+		}
+	}
+$em = $arg{"EXP_MONTH"};
+$ey = $arg{"EXP_YEAR"};
+
+$minutes = $min{$arg{"MINUTES"}};
+
+#print "<INPUT TYPE=HIDDEN NAME='x_Test_Request' VALUE='TRUE'>\n";
+
+print "<INPUT TYPE=HIDDEN NAME='x_Login' VALUE='bogus'>\n";
+print "<INPUT TYPE=HIDDEN NAME='x_amount' VALUE='$minutes'>\n";
+print "<INPUT TYPE=HIDDEN NAME='x_Version' VALUE='3.0'>\n";
+print "<INPUT TYPE=HIDDEN NAME='x_Exp_Date' VALUE='$em/$ey'>\n";
+print "<INPUT TYPE=HIDDEN NAME='x_ADC_Relay_Response' VALUE='TRUE'>\n";
+print "<INPUT TYPE=HIDDEN NAME='x_ADC_URL' VALUE='http://somewhere.com/cgi-bin/authnet/echo.pl'>\n";
+print "<INPUT TYPE=HIDDEN NAME='tmp' VALUE='$filename'>\n";
+close OF;
+
+# ------------------------- Write HTML Headers and FORM
+print <<end_footer;
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">document.theform.submit()</SCRIPT>
+
+end_footer
+
+
+
+
+
+
+
+
+# ------------------------- Convert to Field Name AuthorizeNet Field Name
+sub conv
+	{
+	$f = $_[0];
+	
+	if ($f eq "FIRST NAME") 	{$f = "First_Name";}
+	elsif ($f eq "LAST NAME")	{$f = "Last_Name";}
+	elsif ($f eq "CREDIT_CARD")	{$f = "Card_Num";}
+	elsif ($f eq "ZIP_CODE") 	{$f = "Zip";}
+	elsif ($f eq "EXP_MONTH") 	{$f = "";}
+	elsif ($f eq "EXP_YEAR") 	{$f = "";}
+
+	if ($f ne "") {$f = "x_$f";}
+	
+	return $f;
+	}

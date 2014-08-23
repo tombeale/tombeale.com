@@ -1,0 +1,15 @@
+.client
+Altek Media Services / Riverside Community Health Fountation
+.url
+www.rchf.org
+.host
+AITCOM.NET
+.server
+
+.synopsis
+This job came through a design/multimedia firm and some of the 
+artwork was done by their designer. I was responsible for converting
+his artwork into the appropriate formats, as well as the overall 
+design and coding of the site.  I designed the background, navigation
+bars, header and some of the other graphics. I coded all of the HTML
+and JavaScript using UltraEdit.

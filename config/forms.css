@@ -1,0 +1,119 @@
+.datalink {
+	color: #637e63;
+	cursor: hand;
+	}
+
+.expand1 {
+	padding: 1 0 3 20;
+	}
+
+.expand2 {
+	padding: 1 0 1 30;
+	}
+
+.expand2link {
+	padding: 1 0 1 30;
+	cursor: hand;
+	}
+
+<!-- ------------------- Input Fields -->
+.popuptitle {
+	font-family: Arial;
+	font-size: 14pt;
+	font-weight: bold;
+	}
+
+.fieldcap {
+	color: #000044;
+	font-size: 8pt;
+	}
+
+.label {
+	font-family: Arial;
+	font-size: 10pt;
+	}
+
+.caption {
+	font-family: Arial;
+	font-size: 7pt;
+	padding: 3 0 0 0;
+	}
+
+.input {
+	font-family: Arial;
+	border-width: 0 0 1 0;
+	border-style: solid;
+	background-color: #ffffff;
+	border-color: white white #000066 white;
+	}
+	
+.input2 {
+	font-family: Arial;
+	border-width: 1 1 1 1;
+	border-style: solid;
+	background-color: #ffffff;
+	border-color: #000066;
+	}
+
+.textarea {
+	font-family: Arial;
+	border-width: 1 1 1 1;
+	border-style: solid;
+	background-color: #ffffff;
+	border-color: #000066 #000066 #000066 #000066;
+	}
+
+.redbutton {
+	font-family: Arial;
+	font-size: 8pt;
+	font-weight: bold;
+	border-width: 1 1 1 1;
+	border-style: solid;
+	color: white;
+	padding: 0 0 0 0;
+	background-color: #ff0000;
+	border-color: #660000;
+	}
+
+.button {
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #003300;
+	background-color: #FFDAB5; 
+	padding: 0 0 0 0;
+	}
+
+#popuptitle {
+	position: absolute;
+	left: 10px;
+	top: 24px;
+	}
+
+.sys_title {
+	font-family: Arial;
+	font-size: 11pt;
+	font-weight: bold;
+	}
+
+.smallinput {
+	font-family: Arial;
+	font-size: 8pt;
+	border-width: 0 0 1 0;
+	border-style: solid;
+	border-color: #006600;
+	}
+
+.area {
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #003300;
+	background-color: #ffead5; 
+	padding: 3px;
+	}
+
+.link {
+	color: #009;
+	cursor: hand;
+	}

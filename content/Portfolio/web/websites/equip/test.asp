@@ -1,0 +1,1 @@
+<%if check_boxes <> 1 then	response.write "You need to check at least one box <A HREF='JavaScript: back()'>Back</A>"else	response.write "OK"end if function check_boxes	check_boxes = 0	for a = 1 to 5		cbname = "Item-" & a		if request.form(cbname) <> "" then			check_boxes = check_boxes + 1			exit function		end if	nextend function%>

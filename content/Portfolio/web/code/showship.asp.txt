@@ -1,0 +1,126 @@
+<%
+' /////////////////////////////////////////////////////////////////////
+'	
+'    Active Server Page to display production status
+'	 	(c) 1999 Tom Beale
+' 
+' /////////////////////////////////////////////////////////////////////
+%<
+<HTML>
+<HEAD>
+    <TITLE>
+    	
+    </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!----------------------------------------------
+
+// -->
+</SCRIPT>
+<%
+arg = request.querystring
+
+Set Conn = Server.CreateObject("ADODB.Connection")
+cnpath="DBQ=" & server.mappath("aflows.mdb")
+Conn.Open "DRIVER={Microsoft Access Driver (*.mdb)}; " & cnpath
+
+sql = "SELECT FlowData.ship, FlowData.model, FlowData.airline, FlowData.logo, FlowData.[nose-s], FlowData.[nose-a], FlowData.[join-s], FlowData.[join-a], FlowData.[wing-s], FlowData.[wing-a], FlowData.[elev-s], FlowData.[elev-a], FlowData.[final-s], FlowData.[final-a], FlowData.[paint-s], FlowData.[paint-a], FlowData.[ramp-s], FlowData.[ramp-a] "
+sql = sql & "FROM FlowData "
+sql = sql & "WHERE (((FlowData.ship)='" & arg & "'));"
+
+set rs=conn.execute(sql)
+
+
+' ================================== Subroutines
+
+' ---------------------------------- Select filled or unfilled aircraft
+	sub pick(s, n)
+		if NOT n then
+			g = "<IMG SRC='./lib/" & s & "-1.gif'>"
+		else	
+			g = "<IMG SRC='./lib/" & s & "-0.gif'>"
+		end if
+		response.write(g)
+	end sub
+
+' ---------------------------------- Show Date Information
+	sub Dates(s, n, width)%>
+		<TD>
+			<FONT FACE="Arial, Helvetica" SIZE=-1 COLOR="000000">
+			<b><%=response.write(s)%></b><br>
+			<IMG SRC="./lib/space.gif" HEIGHT=4 WIDTH=10>S = <%=response.write(rs.fields(n))%><br>
+			<IMG SRC="./lib/space.gif" HEIGHT=4 WIDTH=10>A = <b><%=response.write(rs.fields(n+1))%></b><br>
+			<IMG SRC="./lib/space.gif" HEIGHT=1 WIDTH=<%=response.write(width)%> BORDER=0>
+		</TD>
+	<%end sub
+%>
+</HEAD>
+
+<BODY BGCOLOR="FFFFFF">
+
+<%if rs.eof then%>
+	<H2>No Entry for Ship #<%=arg%></H2>
+<%else%>
+	<TABLE BORDER=0>
+	<TR>
+		<TD COLSPAN=3>
+			<FONT FACE="Arial, Helvetica" SIZE=-1 COLOR="000000">
+			Fuselage No.<br><FONT SIZE=+3 COLOR="000099">
+			<b><% = rs.fields(0).value %></b><IMG SRC="./lib/space.gif" WIDTH=10>
+			<FONT FACE="Arial, Helvetica" SIZE=+2 COLOR="000000">
+			<b><% = rs.fields(2).value %></b>
+		</TD>
+		<TD ALIGN=RIGHT>
+			<%if rs.fields(3) <> "" then%>
+				<IMG SRC='./logos/<%=rs.fields(3)%>'>
+			<%end if%>			 
+		</TD>
+	</TR><TD COLSPAN=4><HR></TD><TR>
+	</TR><TR>
+		<TD COLSPAN=4>
+		<TABLE><TR>
+			<%
+			call dates("Nose",4,100)
+			call dates("Fuselage Join",6,170)
+			call dates("Final Install",12,160)
+			call dates("West Ramp",16,10)
+			%>
+		</TR></TABLE>
+		</TD>
+	</TR><TR>
+		<TD COLSPAN=4>
+			<NOBR>
+			<%
+			call pick("nose", rs.fields(5))
+			call pick("join", rs.fields(7))
+			response.write("<IMG SRC='./lib/spacer2.gif' BORDER=0>")
+			call pick("final", rs.fields(13))
+			call pick("ramp", rs.fields(17))
+			%><BR>
+			
+			<%
+			call pick("wing", rs.fields(9))
+			response.write("<IMG SRC='./lib/spacer1.gif' BORDER=0>")
+			call pick("elev", rs.fields(11))
+			call pick("paint", rs.fields(15))
+			%>
+			</NOBR>
+		</TD>
+	</TR><TR>
+		<TD COLSPAN=4>
+		<TABLE><TR>
+			<%
+			call dates("Wing",8,180)
+			call dates("Horizontal Stabilizer",10,180)
+			call dates("Paint",14,10)
+			%>
+		</TR></TABLE>
+	</TR>
+	</TABLE>
+	<%
+	rs.close
+	set rs=nothing
+	conn.close%>
+<%end if%>
+
+</BODY>
+</HTML>
